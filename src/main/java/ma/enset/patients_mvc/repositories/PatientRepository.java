@@ -1,7 +1,10 @@
-package ma.enset.patients_mvc.repositories;
+package ma.enset.patientmvc.repositories;
 
-import ma.enset.patients_mvc.entities.Patient;
+import ma.enset.patientmvc.entities.Patient;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PatientRepository extends JpaRepository<Patient,Long> {
+public interface PatientRepository extends JpaRepository <Patient, Long> {
+    Page<Patient> findByNomContains(String kw, Pageable pageable);
 }
